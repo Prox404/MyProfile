@@ -11,7 +11,7 @@ const projects = [
     {
         title: 'Short Link',
         description: 'Short Link is a URL shortening web application.',
-        image: 'assets/img/shortlink.jpg',
+        image: 'assets/img/Shortlink.jpg',
         technologies: ['ReactJs', 'Babel', 'SASS', 'NodeJs', 'ExpressJs'],
         link: [
             'https://github.com/Prox404/ShortLink',
