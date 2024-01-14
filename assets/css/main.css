@@ -1888,3 +1888,105 @@ body::before {
   mix-blend-mode: difference;
   z-index: 999;
 }
+
+.loading{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #0c0c0c;
+  z-index: 100;
+  animation: fadeIn 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% - 55px), calc(-50% - 35px));
+}
+
+.pac-man {
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-top: 5em;
+  border-radius: 100em 100em 0 0;
+  background: #f00;
+  transform-origin: bottom;
+  animation: eating-top .5s infinite;
+  --primaryClr: #474747; 
+  --pacman-zise: 70px;
+  
+  &, &::before {
+    width: var(--pacman-zise);
+    height: calc(var(--pacman-zise)/2);
+    background: var(--primaryClr);
+  }
+  
+  &::before {
+    content: '';
+    display: block;
+    margin-top: calc(var(--pacman-zise)/2);
+    position: absolute;
+    transform-origin: top;
+    border-radius: 0 0 100em 100em;
+    transform: rotate(80deg);
+    animation: eating-bottom .5s infinite;
+  }
+  
+  &::after {
+    position: absolute;
+    border-radius: 100em;
+    content: '';
+    display: block;
+    height: 20px;
+    width: 20px;
+    margin-top: calc((var(--pacman-zise) / 2) - 10px);
+    margin-left: calc((var(--pacman-zise) / 2) - 10px);
+    transform-origin: center;
+    animation: 
+      center .5s infinite,
+      ball .5s -.33s infinite linear;
+  }
+}
+
+@keyframes eating-top{
+  0%{ transform: rotate(-40deg); }
+  50% { transform: rotate(0deg); }
+  100%{ transform: rotate(-40deg); }
+}
+
+@keyframes eating-bottom{
+  0%{ transform: rotate(80deg); }
+  50% { transform: rotate(0deg); }
+  100%{ transform: rotate(80deg); }
+}
+
+@keyframes center{
+  0%{ transform: rotate(40deg); }
+  50% { transform: rotate(0deg); }
+  100%{ transform: rotate(40deg); }
+}
+
+@keyframes ball{
+  0%{ 
+    opacity: .7;
+    box-shadow: 
+      70px 0 0 0 var(--primaryClr),
+      120px 0 0 0 var(--primaryClr),
+      170px 0 0 0 var(--primaryClr),
+      220px 0 0 0 var(--primaryClr)
+    ;
+  }
+  100% { 
+    box-shadow: 
+      20px 0 0 0 var(--primaryClr),
+      70px 0 0 0 var(--primaryClr),
+      120px 0 0 0 var(--primaryClr),
+      170px 0 0 0 var(--primaryClr)
+    ;
+  }
+  
+}

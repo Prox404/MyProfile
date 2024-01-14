@@ -57,3 +57,9 @@ function hideModal() {
     let modal = document.getElementById('modal');
     modal.classList.add('hidden');
 }
+
+window.addEventListener("load", loading)
+function loading() {
+    let loading = document.getElementById('loading');
+    loading.classList.add('hidden');
+}
